@@ -62,8 +62,8 @@ def checkIfTheElementExist(letter,word,positions):
 if __name__ == "__main__":
     if boolD:
         print("START")
-    
-    string = "mmm"
+    #canecane
+    string = "piupiu"
     main(string)
     
     
