@@ -1,6 +1,13 @@
 boolD = True
 
 def main(stringa):
+    """Questa funzione ha il compito di ciclare tutte le lettera della parola passata come input
+    in modo che la funcione controlIfTheStringExistAfterThat possa elaborare con piu facilita
+    e funzionare correttamente 
+
+    Args:
+        stringa ([string]): [la parola presa di riferimento]
+    """
     length = len(stringa)
     word = stringa
     answer = False
@@ -24,12 +31,24 @@ def main(stringa):
     print(str(answer)+"\n")
     
 def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
+    """Questa funzione controlla se dopo l'elemento dato come input ne esiste un altro uguale dopo. 
+    Ma solo doppio non triplo altrimenti otornera false
+
+    Args:
+        letter ([string]): [le lettere di partenze puo essere formata da una singola lettera o da piu]
+        word ([string]): [la parola intera di partenza]
+        positions ([string]): [la posizione fisica dell'ultimo elemento di letter all'interno della parola]
+        originPosition ([string]): [la parola della lettera iniziale]
+
+    Returns:
+        [boolean]: [ritorna una risposta se la lettera passata come input ha dei doppi dopo]
+    """
     lentgh = len(letter)
     lentghSub1 = positions +1
     lentghSub0 = ""
     sub0 = ""
     lentghSub2 = positions+lentgh +1
-    existElement = checkIfTheElementExist(letter,word,originPosition)
+    existElement = checkIfTheElementExist(letter,originPosition)
 
     if (lentgh == 1):
         lentghSub1 = positions+lentgh 
@@ -49,7 +68,19 @@ def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
     return answer
 
 
-def checkIfTheElementExist(letter,word,positions):
+def checkIfTheElementExist(letter,positions):
+    """Questa funzione ha il compito di controllare se il programma contine lettere da poter
+    analizzare prima di quella che sto controllando. Se ad esempio nella parola "mmm", io sto analizzando 
+    la m centrale, questa funzione controllera se è possibile prendere la m dietro o se ce ne sono troppe poche lettere
+    per farlo
+
+    Args:
+        letter ([string]): [la stringa di lettere presa di riferimento per la ricerca]
+        positions ([string]): [la posiozne della prima lettera di letter all'interno della posiozne letter]
+
+    Returns:
+        [boolean]: [risultato se in quella stringa è possibile anallizare anche le lettere dietro e non solo quelle da davanti]
+    """
     lentgh = len(letter)
     risp = False
     if (positions - lentgh >= 0):
