@@ -26,10 +26,10 @@ def main(stringa):
     
 def controlIfTheStringExistAfterThat(letter,word,positions):
     lentgh = len(letter)
-    lentghSub1 = positions+lentgh
-    lentghSub2 = positions+lentgh+lentgh
+    lentghSub1 = positions+lentgh-1
+    lentghSub2 = positions+lentgh+lentgh-1
     sub1 = word[lentghSub1:lentghSub2]
-    sub2 = word[lentghSub2:lentghSub2+lentgh]
+    sub2 = word[lentghSub2:lentghSub2+lentgh-1]
     answer = False
     if (letter == sub1):
         answer = True
