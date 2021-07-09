@@ -21,7 +21,7 @@ def main(stringa):
             else:
                 break
         x+=1    
-    print(answer)
+    print(str(answer)+"\n")
     
 def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
     lentgh = len(letter)
@@ -45,7 +45,7 @@ def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
     if (letter == sub2 and letter == sub1 and sub1 == sub2):
         answer = False
     if (answer == True):
-        print("caso di doppie: "+ letter)
+        print("\ncaso di doppie: "+ letter)
     return answer
 
 
@@ -61,11 +61,11 @@ def checkIfTheElementExist(letter,word,positions):
 
 if __name__ == "__main__":
     if boolD:
-        print("START")
+        print("\nSTART")
     #canecane
-    string = "piupiu"
+    string = "dddd"
     main(string)
     
     
     if boolD:
-        print("STOP")
+        print("STOP\n")
