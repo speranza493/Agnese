@@ -40,6 +40,8 @@ def controlIfTheStringExistAfterThat(letter,word,positions):
         answer = True
     if (letter == sub2 and letter == sub1 and sub1 == sub2):
         answer = False
+    if (answer == True):
+        print(letter)
     return answer
 
 
