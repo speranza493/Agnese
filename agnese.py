@@ -15,7 +15,7 @@ def main(stringa):
                 answer = True
             newString = word[position+1:len(word)]
             checkIfTheLetterExist = newString.find(letter)
-            if (checkIfTheLetterExist>-1 and position+1!=len(word)):#//FIXME: deve controllare anche le parole dietro quando serve altrimenti salta
+            if (checkIfTheLetterExist>-1 and position+1!=len(word)):
                 position = position+1
                 letter = letter+word[position]
             else:
@@ -25,10 +25,10 @@ def main(stringa):
     
 def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
     lentgh = len(letter)
-    lentghSub1 = positions+lentgh -1
+    lentghSub1 = positions +1
     lentghSub0 = ""
     sub0 = ""
-    lentghSub2 = positions+lentgh+lentgh -1
+    lentghSub2 = positions+lentgh +1
     existElement = checkIfTheElementExist(letter,word,originPosition)
 
     if (lentgh == 1):
@@ -45,7 +45,7 @@ def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
     if (letter == sub2 and letter == sub1 and sub1 == sub2):
         answer = False
     if (answer == True):
-        print(letter+letter)
+        print("caso di doppie: "+ letter)
     return answer
 
 
