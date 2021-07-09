@@ -8,8 +8,9 @@ def main(stringa):
     while (answer == False and x < length):
         letter = word[x]
         position = x
+        originPosition = x
         for y in range(0,len(word)):
-            check = controlIfTheStringExistAfterThat(letter,word,position)
+            check = controlIfTheStringExistAfterThat(letter,word,position,originPosition)
             if (check == True):
                 answer = True
             newString = word[position+1:len(word)]
@@ -22,26 +23,29 @@ def main(stringa):
         x+=1    
     print(answer)
     
-def controlIfTheStringExistAfterThat(letter,word,positions):
+def controlIfTheStringExistAfterThat(letter,word,positions,originPosition):
     lentgh = len(letter)
     lentghSub1 = positions+lentgh -1
     lentghSub0 = ""
+    sub0 = ""
     lentghSub2 = positions+lentgh+lentgh -1
-    existElement = checkIfTheElementExist(letter,word,positions)
-    if (existElement):
-        pass
+    existElement = checkIfTheElementExist(letter,word,originPosition)
+
     if (lentgh == 1):
         lentghSub1 = positions+lentgh 
         lentghSub2 = positions+lentgh+lentgh  
+    if (existElement):
+        lentghSub0 = originPosition - lentgh
+        sub0 = word[lentghSub0:originPosition]
     sub1 = word[lentghSub1:lentghSub2]
     sub2 = word[lentghSub2:lentghSub2+lentgh]
     answer = False
-    if (letter == sub1 and sub1 != sub2):
+    if (letter == sub1 and sub1 != sub2 and letter != sub0 ):
         answer = True
     if (letter == sub2 and letter == sub1 and sub1 == sub2):
         answer = False
     if (answer == True):
-        print(letter)
+        print(letter+letter)
     return answer
 
 
@@ -59,7 +63,7 @@ if __name__ == "__main__":
     if boolD:
         print("START")
     
-    string = "cococo"
+    string = "mmm"
     main(string)
     
     
