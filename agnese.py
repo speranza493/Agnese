@@ -94,7 +94,7 @@ if __name__ == "__main__":
     if boolD:
         print("\nSTART")
     #canecane
-    string = "dddd"
+    string = "mm"
     main(string)
     
     
