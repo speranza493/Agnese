@@ -8,13 +8,18 @@ int main() {
   int index = 0;
   
   while (answer==false && index < character.length()){
-    char char_ = character[index];
-    
+    answer = controllingIfExistADouble(index,character);
     index++;
   };
+  
   return 0;
 }
 
-void sayHi(){
-  cout << "HelloUser\n";
+bool controllingIfExistADouble(int index,string word){
+  string char_ = ""+word[index];
+  bool answer = false;
+  int len = word.length();
+  string substring = word.substr(index,word.length());
+
+  return answer;
 }
