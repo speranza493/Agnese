@@ -24,7 +24,9 @@ bool controllingIfExistADouble(int index,string word){
   while (answer==false && indexWord < substring.length()){
     int index_ = substring.find(char_);
     bool answerForUndenstandHowManyElementAreInTheWord = controllingHowMuchTimeExistAString(substring,char_);
-    
+    if (answerForUndenstandHowManyElementAreInTheWord == true){
+      answer = true;
+    }
     char_ = char_+substring[indexWord];
     indexWord++;
   }
@@ -32,15 +34,17 @@ bool controllingIfExistADouble(int index,string word){
 }
 
 bool controllingHowMuchTimeExistAString(string word,string char_){
-  int lenChar = char_.length();
-  int lenWord = word.length();
-  double lenOfTheWord = lenWord/lenChar;
+  string sub = word;
+  int len = char_.length();
+  string sub1 =   sub.substr(0,len);
+  sub = sub.substr(len,len);
+  string sub2 = sub.substr(0,len);
   bool answer = false;
-  int i = 0;
-  while (answer==false && i <= lenOfTheWord){
-
-    i++;
+  if (sub1 == char_ && sub2 != sub1){
+    answer = true;
   }
   
   return answer;
 }
+
+
