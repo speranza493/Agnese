@@ -2,46 +2,16 @@
 using namespace std;
 #include <iostream>
 
-
-
-bool controllingHowMuchTimeExistAString(string word,string char_){
-  
+bool controllIfAEllementExistBehindTheWord(string word, string char_, int index){
+  bool answer = true;
   int len = char_.length();
-  string sub1;
-  string sub2;
-  string sub;
-  bool answer = false;
-    try
-{
-  sub = word.substr(len,word.length());
-}
-catch( std::out_of_range& exception )
-{
-  sub = "";
-}
-  try
-{
-  sub1 =   sub.substr(0,len);
-}
-catch( std::out_of_range& exception )
-{
-  sub1 =   sub.substr(0,word.length());
-}
-    try
-{
-    sub = sub.substr(len,len);
-  sub2 = sub.substr(0,len);
-}
-catch( std::out_of_range& exception )
-{
-  sub2 = sub.substr(0,word.length());
-}
-
-  
-  if (sub1 == char_ && sub2 != sub1){
-    answer = true;
+  string sub0 = "";
+  if ((index - len) > 0){
+    sub0 = word.substr((index - len),len);
   }
-  
+  if (char_ == sub0){
+    answer = false;
+  }
   return answer;
 }
 
@@ -86,6 +56,8 @@ catch( std::out_of_range& exception )
   
   return answer;
 }
+
+
 
 bool controllingIfExistADouble(int index,string word){
   string char_ = ""+word[index];
@@ -95,14 +67,19 @@ bool controllingIfExistADouble(int index,string word){
   int indexWord = 0;
   int index_;
   bool answerForUndenstandHowManyElementAreInTheWord;
+  bool ControllIfAEllementExistBehindTheWord ;
   while (answer==false && indexWord < substring.length()){
     index_ = substring.find(char_);
     answerForUndenstandHowManyElementAreInTheWord = controllingHowMuchTimeExistAString(substring,char_);
-    if (answerForUndenstandHowManyElementAreInTheWord == true){
+    ControllIfAEllementExistBehindTheWord= controllIfAEllementExistBehindTheWord( word, char_, indexWord);
+    if (answerForUndenstandHowManyElementAreInTheWord == true && ControllIfAEllementExistBehindTheWord == true){
       answer = true;
     }
     
     char_ = char_+substring[indexWord];
+    if (word.find(char_)>100){
+       break;
+    }
     indexWord++;
   }
   return answer;
@@ -112,7 +89,7 @@ bool controllingIfExistADouble(int index,string word){
 
 
 int main() {
-  string character = "tcoco";
+  string character = "ttt";
   bool answer = false;
   int index = 0;
   
