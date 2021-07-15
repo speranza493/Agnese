@@ -8,11 +8,11 @@ bool controllIfAEllementExistBehindTheWord(string word, string char_, int index)
   string sub0 = "";
   if ((index - len) >= 0){
     sub0 = word.substr((index - len),len);
-  }
-  if (char_ == sub0 && "" != sub0){ //FIXME: L'ERRORE è QUI
+  
+  if (char_ == sub0 && "" != sub0){ 
     answer = false;
   }
-  
+  }
   
   return answer;
 }
@@ -62,27 +62,29 @@ catch( std::out_of_range& exception )
 
 
 bool controllingIfExistADouble(int index,string word){
-  string char_ = ""+word[index];
+  
   bool answer = false;
   int len = word.length();
   string substring = word.substr(index,word.length());
   int indexWord = 0;
+  string char_ = ""+word;
+  char_ = word[indexWord];
   int index_;
   bool answerForUndenstandHowManyElementAreInTheWord;
   bool ControllIfAEllementExistBehindTheWord ;
-  while (answer==false && indexWord < substring.length()){
-    index_ = substring.find(char_);
+  while (answer==false && indexWord <= substring.length()){
+    
     answerForUndenstandHowManyElementAreInTheWord = controllingHowMuchTimeExistAString(substring,char_);
-    ControllIfAEllementExistBehindTheWord= controllIfAEllementExistBehindTheWord( word, char_, indexWord);
+    ControllIfAEllementExistBehindTheWord= controllIfAEllementExistBehindTheWord( word, char_, indexWord+index);
     if (answerForUndenstandHowManyElementAreInTheWord == true && ControllIfAEllementExistBehindTheWord == true){
       answer = true;
     }
-    
+    indexWord++;
     char_ = char_+substring[indexWord];
     if (word.find(char_)>100){
        break;
     }
-    indexWord++;
+    
   }
   return answer;
 }
@@ -91,7 +93,7 @@ bool controllingIfExistADouble(int index,string word){
 
 
 int main() {
-  string character = "tt";
+  string character = "piupiu";
   bool answer = false;
   int index = 0;
   
