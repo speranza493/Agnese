@@ -9,9 +9,13 @@ bool controllIfAEllementExistBehindTheWord(string word, string char_, int index)
   if ((index - len) > 0){
     sub0 = word.substr((index - len),len);
   }
-  if (char_ == sub0){
+  if (char_ == sub0 ){
     answer = false;
   }
+  if ("" == sub0 ){
+    answer = false;
+  }
+  
   return answer;
 }
 
@@ -89,7 +93,7 @@ bool controllingIfExistADouble(int index,string word){
 
 
 int main() {
-  string character = "ttt";
+  string character = "tttt";
   bool answer = false;
   int index = 0;
   
