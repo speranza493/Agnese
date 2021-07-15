@@ -9,7 +9,7 @@ bool controllIfAEllementExistBehindTheWord(string word, string char_, int index)
   if ((index - len) > 0){
     sub0 = word.substr((index - len),len);
   }
-  if (char_ == sub0 && "" != sub0){
+  if (char_ == sub0 && "" != sub0){ //FIXME: L'ERRORE è QUI
     answer = false;
   }
   
