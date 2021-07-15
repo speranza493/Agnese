@@ -6,14 +6,14 @@ bool controllIfAEllementExistBehindTheWord(string word, string char_, int index)
   bool answer = true;
   int len = char_.length();
   string sub0 = "";
-  if ((index - len) > 0){
+  if ((index - len) >= 0){
     sub0 = word.substr((index - len),len);
   }
   if (char_ == sub0 && "" != sub0){ //FIXME: L'ERRORE è QUI
     answer = false;
   }
   
-  cout << answer <<" " << char_<<"\n";
+  
   return answer;
 }
 
@@ -91,7 +91,7 @@ bool controllingIfExistADouble(int index,string word){
 
 
 int main() {
-  string character = "ttt";
+  string character = "tt";
   bool answer = false;
   int index = 0;
   
