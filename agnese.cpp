@@ -1,15 +1,85 @@
-#include <iostream>
 
 using namespace std;
+#include <iostream>
+
+
 
 bool controllingHowMuchTimeExistAString(string word,string char_){
   
   int len = char_.length();
-  string sub = word.substr(len,word.length());
-  string sub1 =   sub.substr(0,len);
-  sub = sub.substr(len,len);
-  string sub2 = sub.substr(0,len);
+  string sub1;
+  string sub2;
+  string sub;
   bool answer = false;
+    try
+{
+  sub = word.substr(len,word.length());
+}
+catch( std::out_of_range& exception )
+{
+  sub = "";
+}
+  try
+{
+  sub1 =   sub.substr(0,len);
+}
+catch( std::out_of_range& exception )
+{
+  sub1 =   sub.substr(0,word.length());
+}
+    try
+{
+    sub = sub.substr(len,len);
+  sub2 = sub.substr(0,len);
+}
+catch( std::out_of_range& exception )
+{
+  sub2 = sub.substr(0,word.length());
+}
+
+  
+  if (sub1 == char_ && sub2 != sub1){
+    answer = true;
+  }
+  
+  return answer;
+}
+
+
+bool controllingHowMuchTimeExistAString(string word,string char_){
+  
+  int len = char_.length();
+  string sub1;
+  string sub2;
+  string sub;
+  bool answer = false;
+    try
+{
+  sub = word.substr(len,word.length());
+}
+catch( std::out_of_range& exception )
+{
+  sub = "";
+}
+  try
+{
+  sub1 =   sub.substr(0,len);
+}
+catch( std::out_of_range& exception )
+{
+  sub1 =   sub.substr(0,word.length());
+}
+    try
+{
+    sub = sub.substr(len,len);
+  sub2 = sub.substr(0,len);
+}
+catch( std::out_of_range& exception )
+{
+  sub2 = sub.substr(0,word.length());
+}
+
+  
   if (sub1 == char_ && sub2 != sub1){
     answer = true;
   }
@@ -31,6 +101,7 @@ bool controllingIfExistADouble(int index,string word){
     if (answerForUndenstandHowManyElementAreInTheWord == true){
       answer = true;
     }
+    
     char_ = char_+substring[indexWord];
     indexWord++;
   }
@@ -41,7 +112,7 @@ bool controllingIfExistADouble(int index,string word){
 
 
 int main() {
-  string character = "Name2";
+  string character = "tcoco";
   bool answer = false;
   int index = 0;
   
@@ -49,8 +120,9 @@ int main() {
     answer = controllingIfExistADouble(index,character);
     index++;
   };
+  cout << answer << "\n";
   if (answer){
-    cout << answer << "\n";
+    
   }
   return 0;
 }
